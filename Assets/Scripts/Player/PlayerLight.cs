@@ -10,6 +10,7 @@ public class PlayerLight : Player
     void Start()
     {
         maxHealth = 3;
+        this.setHealth(maxHealth);
         speed = 10;
         RoF = 8;
         dmg = 1;
@@ -18,7 +19,6 @@ public class PlayerLight : Player
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public override void Shoot()

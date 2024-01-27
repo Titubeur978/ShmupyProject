@@ -44,6 +44,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMedic
       objectReference: {fileID: 0}
+    - target: {fileID: 6201168403501576995, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
+      propertyPath: Tanker
+      value: 
+      objectReference: {fileID: 5766517299725055047}
+    - target: {fileID: 6201168403501576995, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
+      propertyPath: SpecialProjectile
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8943972604588426178, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -155,5 +163,10 @@ PrefabInstance:
 --- !u!4 &2014298976881901911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8943972604588426178, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
+  m_PrefabInstance: {fileID: 7488190462053515925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5766517299725055047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4030067884904068818, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
   m_PrefabInstance: {fileID: 7488190462053515925}
   m_PrefabAsset: {fileID: 0}

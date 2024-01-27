@@ -15,8 +15,8 @@ public class EnemyMedic : Enemy
     {
         maxHealth = 10;
         speed = 5;
-        RoF = 3;
-        shootChance = 20;
+        RoF = 5;
+        shootChance = 0;
         specialRoF = 1;
         specialShootChance = 30;
     }
@@ -28,7 +28,11 @@ public class EnemyMedic : Enemy
         {
             //make him shoot death lazers of revenge
             speed = 7;
-            RoF = 5;
+            RoF = 2;
+
+            shootChance = 20;
+            specialRoF = 5;
+            specialShootChance = 10;
         }
     }
 }

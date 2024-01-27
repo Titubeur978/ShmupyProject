@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     protected int maxHealth, dmg;
     protected float speed, RoF; //RoF=shots per seconds
     protected bool isShooting = false;
-    
-    private int currentHealth;
+
+    [SerializeField] private int currentHealth;
 
     public GameObject projectile;
     public Transform shootPoint;
@@ -20,13 +20,17 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Move();
+        if(getHealth() <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("You Dead !");
+        }
     }
 
 
@@ -78,4 +82,6 @@ public class Player : MonoBehaviour
     }
 
     public int getDMG() { return dmg; }
+
+
 }

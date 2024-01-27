@@ -8,6 +8,7 @@ public class PlayerHeavy : Player
     void Start()
     {
         maxHealth = 10;
+        this.setHealth(maxHealth);
         speed = 5;
         RoF = 3;
         dmg = 3;

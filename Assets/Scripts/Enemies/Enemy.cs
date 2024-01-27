@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject projectile;
     public Transform shootPoint;
 
-    private bool isShooting;
+    protected bool isShooting;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (currentHealth <= 0)
         {

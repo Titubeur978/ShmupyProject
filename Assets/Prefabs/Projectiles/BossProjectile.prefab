@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa13741b5999b747aff383c50bf4e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossSubProjectile: {fileID: 5727223257082785781, guid: b0a13330af90d8c4d9a57bc53ec905db, type: 3}
+  subProjectile: {fileID: 5727223257082785781, guid: b0a13330af90d8c4d9a57bc53ec905db, type: 3}
   BSP1: {fileID: 6886205772296825604}
   BSP2: {fileID: 8761561018818164034}
   BSP3: {fileID: 5875234841300631094}
