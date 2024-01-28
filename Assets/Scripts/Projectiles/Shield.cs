@@ -20,6 +20,20 @@ public class Shield : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag=="ProjEnemy" || other.gameObject.tag == "ProjBoss")
+        {
+            OnDamaged();
+        }
+        else if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+        }
+        Destroy(other.gameObject);
+    }
+
+
     void OnDamaged()
     {
         HitsLeft--;
@@ -31,5 +45,7 @@ public class Shield : MonoBehaviour
         {
             SR.sprite = shield3;
         }
+        else
+            Destroy(gameObject);
     }
 }

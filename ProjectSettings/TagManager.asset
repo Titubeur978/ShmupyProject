@@ -8,6 +8,10 @@ TagManager:
   - Boss
   - Wall
   - Shield
+  - ProjEnemy
+  - ProjBoss
+  - ProjPlayer
+  - ProjJoueur
   layers:
   - Default
   - TransparentFX

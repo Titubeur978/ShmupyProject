@@ -154,7 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  dmg: 0
+  currentHealth: 0
   speed: 10
+  RoF: 0
   projectile: {fileID: 5727223257082785781, guid: fb4fc03df91d75540997eb27f95c98f7, type: 3}
   shootPoint: {fileID: 3226228374561433914}
   rb: {fileID: 6770005580579604980}
