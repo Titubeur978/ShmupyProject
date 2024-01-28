@@ -135,7 +135,7 @@ MonoBehaviour:
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: a0f8295a184773a4689e8bd0dc19df5a, type: 3}
   shootPoint: {fileID: 8623508882245825234}
-  ShootPoint2: {fileID: 5059774068585269217}
+  shootPoint2: {fileID: 5059774068585269217}
 --- !u!70 &7948400942100680267
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

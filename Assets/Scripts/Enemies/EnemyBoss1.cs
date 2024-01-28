@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBoss1 : Enemy
 {
-    public Transform ShootPoint2;
+    public Transform shootPoint2;
 
     void Start()
     {
@@ -22,13 +22,24 @@ public class EnemyBoss1 : Enemy
     IEnumerator Shooting(float RoF)
     {
         isShooting = true;
-        int rng = Random.Range(0, 100);
-        if (rng > (100 - shootChance))
+        int shootRNG = Random.Range(0, 100);
+        if (shootRNG > (100 - shootChance))
         {
-            Instantiate(projectile, shootPoint);
+            int shootOrder = Random.Range(0, 2);
+            switch (shootOrder)
+            {
+                case 0: //left then right
+                    Instantiate(projectile, shootPoint);
+                    yield return new WaitForSeconds(0.1f);
+                    Instantiate(projectile, shootPoint2);
+                    break;
 
-            yield return new WaitForSeconds(0.1f);
-            Instantiate(projectile, ShootPoint2);
+                case 1: //right then left
+                    Instantiate(projectile, shootPoint2);
+                    yield return new WaitForSeconds(0.1f);
+                    Instantiate(projectile, shootPoint);
+                    break;
+            }
         }
         yield return new WaitForSeconds(1 / RoF);
         isShooting = false;

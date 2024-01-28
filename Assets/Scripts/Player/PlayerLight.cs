@@ -10,7 +10,6 @@ public class PlayerLight : Player
     void Start()
     {
         maxHealth = 3;
-        this.setHealth(maxHealth);
         speed = 10;
         RoF = 8;
         dmg = 1;

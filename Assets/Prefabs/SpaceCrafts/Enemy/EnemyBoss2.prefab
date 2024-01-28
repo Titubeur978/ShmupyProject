@@ -168,10 +168,10 @@ MonoBehaviour:
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: a0f8295a184773a4689e8bd0dc19df5a, type: 3}
   shootPoint: {fileID: 7678917878846202553}
-  ShootPoint2: {fileID: 8623508882245825234}
-  ShieldPoint: {fileID: 599689741451390703}
-  SpecialProjectile: {fileID: 0}
-  SpecialShootPoint: {fileID: 6222598196811531925}
+  shootPoint2: {fileID: 8623508882245825234}
+  shieldPoint: {fileID: 599689741451390703}
+  specialProjectile: {fileID: 0}
+  specialShootPoint: {fileID: 6222598196811531925}
 --- !u!70 &8256670466530069296
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

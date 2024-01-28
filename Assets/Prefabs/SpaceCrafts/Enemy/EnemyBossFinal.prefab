@@ -235,15 +235,15 @@ MonoBehaviour:
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: a0f8295a184773a4689e8bd0dc19df5a, type: 3}
   shootPoint: {fileID: 2816951136040916868}
-  ShootPoint2: {fileID: 8623508882245825234}
-  ShootPoint3: {fileID: 5492174669077707977}
-  ShootPoint4: {fileID: 7367623774803604103}
-  ShieldPoint1: {fileID: 7339774778220910945}
-  ShieldPoint2: {fileID: 317219602540953147}
-  ShieldPoint3: {fileID: 941793045424329478}
-  SpecialProjectile: {fileID: 0}
-  SpecialShootPoint1: {fileID: 3969110671536771250}
-  SpecialShootPoint2: {fileID: 5658376953489097695}
+  shootPoint2: {fileID: 8623508882245825234}
+  shootPoint3: {fileID: 5492174669077707977}
+  shootPoint4: {fileID: 7367623774803604103}
+  shieldPoint1: {fileID: 7339774778220910945}
+  shieldPoint2: {fileID: 317219602540953147}
+  shieldPoint3: {fileID: 941793045424329478}
+  specialProjectile: {fileID: 0}
+  specialShootPoint1: {fileID: 3969110671536771250}
+  specialShootPoint2: {fileID: 5658376953489097695}
 --- !u!61 &3720355046477640316
 BoxCollider2D:
   m_ObjectHideFlags: 0

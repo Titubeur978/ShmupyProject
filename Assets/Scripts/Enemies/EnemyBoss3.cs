@@ -20,4 +20,5 @@ public class EnemyBoss3 : Enemy
         specialRoF = 1;
         specialShootChance = 10;
     }
+
 }

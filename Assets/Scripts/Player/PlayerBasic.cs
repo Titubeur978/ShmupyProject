@@ -8,7 +8,6 @@ public class PlayerBasic : Player
     void Start()
     {
         maxHealth = 5;
-        this.setHealth(maxHealth);
         speed = 7;
         RoF = 4;
         dmg = 2;

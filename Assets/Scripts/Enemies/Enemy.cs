@@ -13,16 +13,17 @@ public class Enemy : MonoBehaviour
     public Transform shootPoint;
 
     protected bool isShooting;
+    private bool first = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentHealth= maxHealth;
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (first)
+        {
+            currentHealth = maxHealth;
+            first= false;
+        }
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

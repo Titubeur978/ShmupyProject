@@ -5,26 +5,27 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    protected int maxHealth, dmg;
-    protected float speed, RoF; //RoF=shots per seconds
-    protected bool isShooting = false;
-
+    [SerializeField] protected int maxHealth, dmg;
     [SerializeField] private int currentHealth;
+    [SerializeField] protected float speed, RoF; //RoF=shots per seconds
+
+    protected bool isShooting = false;
+    private bool first = true;
 
     public GameObject projectile;
     public Transform shootPoint;
 
-
     [SerializeField] protected Rigidbody2D rb;
     private Vector2 move = Vector2.zero;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (first)
+        {
+            currentHealth = maxHealth;
+            first = false;
+        }
         Move();
         if(getHealth() <= 0)
         {
