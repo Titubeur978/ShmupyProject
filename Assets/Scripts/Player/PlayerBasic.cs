@@ -8,8 +8,8 @@ public class PlayerBasic : Player
     void Start()
     {
         maxHealth = 5;
-        speed = 7;
-        RoF = 4;
+        speed = 10;
+        RoF = 6;
         dmg = 2;
     }
 

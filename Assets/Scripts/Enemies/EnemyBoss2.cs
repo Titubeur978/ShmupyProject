@@ -7,6 +7,7 @@ public class EnemyBoss2 : Enemy
     public Transform shootPoint2, shieldPoint;
     public GameObject specialProjectile;
     public Transform specialShootPoint;
+    public GameObject Shield2nd;
 
     private float specialRoF;
     private int specialShootChance;

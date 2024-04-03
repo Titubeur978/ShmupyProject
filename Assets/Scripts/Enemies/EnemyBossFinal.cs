@@ -17,7 +17,7 @@ public class EnemyBossFinal : Enemy
         maxHealth = 50;
         speed = 4;
         RoF = 1;
-        shootChance = 85;
+        shootChance = 65;
         specialRoF = 2;
         specialShootChance = 15;
     }

@@ -386,6 +386,7 @@
 "Assets/Scripts/Projectiles/BossSubProjecile.cs"
 "Assets/Scripts/Projectiles/EnemyProjectileBehavior.cs"
 "Assets/Scripts/Projectiles/PlayerProjectileBehavior.cs"
+"Assets/Scripts/Shield/ShieldBoss.cs"
 "Assets/Scripts/Shield/ShieldEnemy.cs"
 "Assets/Scripts/Shield/ShieldPlayer.cs"
 -langversion:9.0

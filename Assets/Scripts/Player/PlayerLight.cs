@@ -11,7 +11,7 @@ public class PlayerLight : Player
     {
         maxHealth = 3;
         speed = 10;
-        RoF = 8;
+        RoF = 4;
         dmg = 1;
     }
 

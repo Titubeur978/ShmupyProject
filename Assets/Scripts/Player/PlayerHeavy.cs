@@ -8,9 +8,9 @@ public class PlayerHeavy : Player
     void Start()
     {
         maxHealth = 10;
-        speed = 5;
-        RoF = 3;
-        dmg = 3;
+        speed = 7;
+        RoF = 6;
+        dmg = 2;
     }
 
     // Update is called once per frame

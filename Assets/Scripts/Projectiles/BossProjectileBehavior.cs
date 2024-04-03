@@ -30,7 +30,7 @@ public class BossProjectileBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().changeHealth(1, "remove");
+            other.gameObject.GetComponent<Player>().changeHealth(2, "remove");
             Destroy(gameObject);
         }
     }

@@ -14,10 +14,15 @@ public class BossSubProjecile : MonoBehaviour
         SetVelocity();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject, 0.5f);
+        if(other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Player>().changeHealth(1, "remove");
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Wall")
+            Destroy(gameObject);
     }
 
     void SetVelocity()

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ShieldEnemy : MonoBehaviour
 {
+    public SpriteRenderer SR;
+    Vector4 transp = new Vector4(1f, .75f, .75f, .5f);
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "ProjPlayer")
         {
-            Destroy(gameObject);
+            SR.color *= transp; 
+            if (SR.color.a < 0.2f)
+                Destroy(gameObject);
             Destroy(other.gameObject);
         }
         else if(other.gameObject.tag == "Player")
