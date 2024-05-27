@@ -9,7 +9,7 @@ public class PlayerLight : Player
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 3;
+        maxHealth = 4;
         speed = 10;
         RoF = 4;
         dmg = 1;

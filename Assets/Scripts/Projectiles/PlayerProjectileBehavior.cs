@@ -32,5 +32,10 @@ public class PlayerProjectileBehavior : MonoBehaviour
         }
         else if (other.tag == "Wall")
             Destroy(gameObject);
+        else if (other.tag == "ProjBoss" || other.tag == "ProjEnemy")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

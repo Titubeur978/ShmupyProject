@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     private Vector2 move = Vector2.zero;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -69,7 +74,12 @@ public class Player : MonoBehaviour
     public void changeHealth(int health, string change)
     {
         if (change == "add")
-            setHealth(currentHealth + health);
+        {
+            if (currentHealth + health <= maxHealth)
+                currentHealth += health;
+            else
+                currentHealth = maxHealth;
+        }
         else if (change == "remove")
             setHealth(currentHealth - health);
     }

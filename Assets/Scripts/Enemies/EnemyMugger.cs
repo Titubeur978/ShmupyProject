@@ -10,5 +10,7 @@ public class EnemyMugger : Enemy
         speed = 12;
         RoF = 5;
         shootChance = 15;
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 }

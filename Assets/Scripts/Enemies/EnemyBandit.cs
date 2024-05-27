@@ -10,5 +10,7 @@ public class EnemyBandit : Enemy
         speed = 10;
         RoF = 5;
         shootChance = 15;
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 }

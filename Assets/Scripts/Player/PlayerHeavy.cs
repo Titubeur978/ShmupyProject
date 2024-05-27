@@ -10,7 +10,7 @@ public class PlayerHeavy : Player
         maxHealth = 10;
         speed = 7;
         RoF = 6;
-        dmg = 2;
+        dmg = 3;
     }
 
     // Update is called once per frame

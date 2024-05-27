@@ -12,6 +12,8 @@ public class EnemyBoss1 : Enemy
         speed = 4;
         RoF = 3;
         shootChance = 40;
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     public override void Shoot()

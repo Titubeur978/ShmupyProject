@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 403813227190502581}
   - component: {fileID: 1294901064134375251}
   - component: {fileID: 7765591724934194086}
-  - component: {fileID: 2366108950915726038}
   - component: {fileID: 5296729931659997968}
+  - component: {fileID: 2366108950915726038}
   m_Layer: 0
   m_Name: EnemyBandit
   m_TagString: Enemy
@@ -134,22 +134,7 @@ MonoBehaviour:
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: 05c48193d67296f4198eb0207241d812, type: 3}
   shootPoint: {fileID: 6401351331507107208}
---- !u!70 &2366108950915726038
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6884480261005367115}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
-  m_Size: {x: 0.5, y: 0.85}
-  m_Direction: 0
+  rb: {fileID: 5296729931659997968}
 --- !u!50 &5296729931659997968
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +156,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &2366108950915726038
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6884480261005367115}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.05}
+  m_Size: {x: 0.5, y: 0.85}
+  m_Direction: 0

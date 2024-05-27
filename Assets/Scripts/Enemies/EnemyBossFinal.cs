@@ -7,8 +7,9 @@ public class EnemyBossFinal : Enemy
     public Transform shootPoint2, shootPoint3, shootPoint4;
     public Transform shieldPoint1, shieldPoint2, shieldPoint3;
     public GameObject specialProjectile;
-    public Transform specialShootPoint1, specialShootPoint2;
+    public Transform specialShootPoint, specialShootPoint2;
 
+    private bool isSpecialShooting = false;
     private float specialRoF;
     private int specialShootChance;
 
@@ -20,11 +21,33 @@ public class EnemyBossFinal : Enemy
         shootChance = 65;
         specialRoF = 2;
         specialShootChance = 15;
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+    }
+
+    void FixedUpdate()
+    {
+        if (!isSpecialShooting)
+            SpecialShoot();
+
+        if (currentHealth <= 0)
+            Destroy(gameObject);
+
+        if (!isShooting)
+            Shoot();
+
+        if (!isMoving)
+            Move();
     }
 
     public override void Shoot()
     {
         StartCoroutine(Shooting(RoF));
+    }
+
+    public void SpecialShoot()
+    {
+        StartCoroutine(SpecialShooting(specialRoF));
     }
 
     IEnumerator Shooting(float RoF)
@@ -152,6 +175,37 @@ public class EnemyBossFinal : Enemy
         }
         yield return new WaitForSeconds(1 / RoF);
         isShooting = false;
+    }
+
+    IEnumerator SpecialShooting(float specialRoF)
+    {
+        isSpecialShooting = true;
+        int rng = Random.Range(0, 100);
+        if (rng > (100 - specialShootChance))
+        {
+            int shootOrder = Random.Range(0, 5);
+            switch (shootOrder)
+            {
+                case 0://left
+                    Instantiate(specialProjectile, specialShootPoint);
+                    break;
+                case 1://left too
+                    Instantiate(specialProjectile, specialShootPoint);
+                    break;
+                case 2://right
+                    Instantiate(specialProjectile, specialShootPoint2);
+                    break;
+                case 3://right too
+                    Instantiate(specialProjectile, specialShootPoint2);
+                    break;
+                case 4://both
+                    Instantiate(specialProjectile, specialShootPoint);
+                    Instantiate(specialProjectile, specialShootPoint2);
+                    break;
+            }
+        }
+        yield return new WaitForSeconds(1 / specialRoF);
+        isSpecialShooting = false;
     }
 
 }

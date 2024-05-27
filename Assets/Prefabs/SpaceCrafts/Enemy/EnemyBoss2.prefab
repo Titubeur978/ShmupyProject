@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 8943972604588426178}
   - component: {fileID: -7781040861872751806}
   - component: {fileID: 8618511604054475303}
-  - component: {fileID: 8256670466530069296}
   - component: {fileID: 1941350413375325778}
+  - component: {fileID: 8256670466530069296}
   m_Layer: 0
   m_Name: EnemyBoss2
   m_TagString: Boss
@@ -170,27 +170,12 @@ MonoBehaviour:
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: a0f8295a184773a4689e8bd0dc19df5a, type: 3}
   shootPoint: {fileID: 7678917878846202553}
+  rb: {fileID: 1941350413375325778}
   shootPoint2: {fileID: 8623508882245825234}
   shieldPoint: {fileID: 599689741451390703}
-  specialProjectile: {fileID: 0}
+  specialProjectile: {fileID: 3508844424845698791, guid: 21b09c898dd6b0148948dc1c5cd235a9, type: 3}
   specialShootPoint: {fileID: 6222598196811531925}
-  Shield2nd: {fileID: 1418732144130920622}
---- !u!70 &8256670466530069296
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4030067884904068818}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.5, y: 3.2}
-  m_Direction: 0
+  shield2nd: {fileID: 0}
 --- !u!50 &1941350413375325778
 Rigidbody2D:
   serializedVersion: 4
@@ -212,6 +197,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &8256670466530069296
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030067884904068818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.5, y: 3.2}
+  m_Direction: 0
 --- !u!1 &4588771975605696341
 GameObject:
   m_ObjectHideFlags: 0

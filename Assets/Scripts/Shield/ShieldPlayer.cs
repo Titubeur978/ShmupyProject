@@ -5,10 +5,15 @@ using UnityEngine;
 public class ShieldPlayer : MonoBehaviour
 {
     public Sprite shield2, shield3;
-    public SpriteRenderer SR;
+    private SpriteRenderer SR;
     private int HitsLeft = 3;
     private bool hitCD = false;
     Vector4 transp = new Vector4(1f, 1f, 1f, .5f);
+
+    void Start()
+    {
+        SR = GetComponent<SpriteRenderer>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

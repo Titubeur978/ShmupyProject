@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: 6201168403501576995, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
       propertyPath: Tanker
       value: 
-      objectReference: {fileID: 5766517299725055047}
+      objectReference: {fileID: 2731528227820215495}
     - target: {fileID: 6201168403501576995, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
       propertyPath: SpecialProjectile
       value: 
@@ -164,6 +164,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
+--- !u!114 &1301306185136627109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6201168403501576995, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
+  m_PrefabInstance: {fileID: 4900429705011801734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc403c7aa38b7a4b892ca8191208169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4043824994303716676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8943972604588426178, guid: 5c227f9dcd3430a479121201e4f3632c, type: 3}
@@ -180,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTanker
       objectReference: {fileID: 0}
+    - target: {fileID: 4756702799126208082, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
+      propertyPath: Medic
+      value: 
+      objectReference: {fileID: 1301306185136627109}
     - target: {fileID: 7854428005982542515, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
@@ -240,8 +255,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8943972604588426178, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
   m_PrefabInstance: {fileID: 7488190462053515925}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5766517299725055047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4030067884904068818, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
+--- !u!114 &2731528227820215495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4756702799126208082, guid: b647780cf972bb14291fc2c60dad97d9, type: 3}
   m_PrefabInstance: {fileID: 7488190462053515925}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783c56ce54379524c84173d0f03288c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
