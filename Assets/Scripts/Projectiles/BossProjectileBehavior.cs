@@ -33,6 +33,15 @@ public class BossProjectileBehavior : MonoBehaviour
             other.gameObject.GetComponent<Player>().changeHealth(2, "remove");
             Destroy(gameObject);
         }
+
+        else if (other.gameObject.tag == "Wall")
+            Destroy(gameObject);
+
+        else if (other.tag == "ProjPlayer")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator SpecialEffect()

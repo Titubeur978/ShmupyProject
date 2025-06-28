@@ -45,7 +45,8 @@ public class EnemyTanker : Enemy
                 break;
         }
         rb.velocity = mov * speed;
-        Medic.SetVel(mov);
+        if(Medic != null)
+            Medic.SetVel(mov);
         yield return new WaitForSeconds(2 / speed);
         isMoving = false;
     }

@@ -28,8 +28,10 @@ public class HealingPulse : MonoBehaviour
             other.gameObject.GetComponent<Enemy>().changeHealth(heal, "add");
             Destroy(gameObject);
         }
-        else if (other.tag == "Wall")
+
+        else if (other.gameObject.tag == "Wall")
             Destroy(gameObject);
+
         else if (other.tag == "ProjPlayer")
             Destroy(gameObject);
     }

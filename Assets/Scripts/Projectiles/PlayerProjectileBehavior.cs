@@ -30,8 +30,10 @@ public class PlayerProjectileBehavior : MonoBehaviour
             other.gameObject.GetComponent<Enemy>().changeHealth(dmg, "remove");
             Destroy(gameObject);
         }
-        else if (other.tag == "Wall")
+
+        else if (other.gameObject.tag == "Wall")
             Destroy(gameObject);
+
         else if (other.tag == "ProjBoss" || other.tag == "ProjEnemy")
         {
             Destroy(other.gameObject);

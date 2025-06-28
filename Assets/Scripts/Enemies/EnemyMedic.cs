@@ -11,7 +11,11 @@ public class EnemyMedic : Enemy
 
     private float specialRoF;
     private int specialShootChance;
+    private float healRadius;
+    private int healAmmount;
+    private float healDuration;
     private bool isSpecialShooting = false;
+
 
     void Start()
     {
@@ -19,8 +23,11 @@ public class EnemyMedic : Enemy
         speed = 5;
         RoF = 5;
         shootChance = 0;
-        specialRoF = 1;
+        specialRoF = 1f;
         specialShootChance = 30;
+        healRadius = 5f;
+        healAmmount = 2;
+        healDuration = 5f;
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
     }
@@ -32,10 +39,11 @@ public class EnemyMedic : Enemy
 
         if (!isMoving)
             Move();
-        //make him shoot healing pulse from his ass
+
         if (Tanker != null)
         {
-            //make it move according to tanker's moves
+            if (!isSpecialShooting)
+                SpecialShoot();
         }
         else
         {
@@ -44,8 +52,9 @@ public class EnemyMedic : Enemy
             RoF = 2;
 
             shootChance = 20;
-            specialRoF = 5;
+            specialRoF = 5f;
             specialShootChance = 10;
+            healDuration = 1.5f;
             if (!isShooting)
                 Shoot();
 
@@ -64,9 +73,49 @@ public class EnemyMedic : Enemy
         isSpecialShooting = true;
         int rng = Random.Range(0, 100);
         if (rng > (100 - specialShootChance))
-            Instantiate(specialProjectile, specialShootPoint);
+        {
+            if (Tanker != null && Tanker.getHealth() != Tanker.getMaxHealth())
+            {
+                StartCoroutine(HealTanker());
+            }
+            else
+            {
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, healRadius);
+                foreach (var hit in hits)
+                {
+                    if (hit.gameObject != this.gameObject && hit.gameObject != Tanker.gameObject && hit.CompareTag("Enemy") || hit.CompareTag("Boss"))
+                    {
+                        Enemy ally = hit.GetComponent<Enemy>();
+                        if (ally != null && ally.getHealth() < ally.getMaxHealth())
+                        {
+                            StartCoroutine(HealTarget(ally));
+                            break; // soigne un seul à la fois
+                        }
+                    }
+                }
+            }
+        }
         yield return new WaitForSeconds(1 / specialRoF);
         isSpecialShooting = false;
+    }
+    IEnumerator HealTanker()
+    {
+        Tanker.changeHealth(healAmmount, "add");
+        yield return new WaitForSeconds(healDuration);
+    }
+
+    IEnumerator HealTarget(Enemy target)
+    {
+        Vector2 prevVelocity = rb.velocity;
+        rb.velocity = Vector2.zero;
+        isMoving = true;
+
+        target.changeHealth(healAmmount, "add");
+
+        yield return new WaitForSeconds(healDuration);
+
+        rb.velocity = prevVelocity;
+        isMoving = false;
     }
 
     public void SetVel(Vector2 vel)

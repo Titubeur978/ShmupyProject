@@ -28,7 +28,14 @@ public class EnemyProjectileBehavior : MonoBehaviour
             other.gameObject.GetComponent<Player>().changeHealth(1, "remove");
             Destroy(gameObject);
         }
-        else if (other.tag == "Wall")
-                Destroy(gameObject);
+
+        else if (other.gameObject.tag == "Wall")
+            Destroy(gameObject);
+
+        else if (other.tag == "ProjPlayer")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

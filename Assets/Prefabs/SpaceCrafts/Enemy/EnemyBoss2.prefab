@@ -167,10 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08291dc2275afd846b69094241ac02f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  RoF: 0
   currentHealth: 1
   projectile: {fileID: 5727223257082785781, guid: a0f8295a184773a4689e8bd0dc19df5a, type: 3}
   shootPoint: {fileID: 7678917878846202553}
-  rb: {fileID: 1941350413375325778}
   shootPoint2: {fileID: 8623508882245825234}
   shieldPoint: {fileID: 599689741451390703}
   specialProjectile: {fileID: 3508844424845698791, guid: 21b09c898dd6b0148948dc1c5cd235a9, type: 3}
@@ -184,7 +185,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4030067884904068818}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

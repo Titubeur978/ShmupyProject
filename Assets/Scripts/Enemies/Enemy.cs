@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
         //verifier quel mur est le plus proche et s'il est trop proche, empecher le deplacement dans cette direction
     }
 
+    public int getMaxHealth() { return maxHealth; }
     public int getHealth() { return currentHealth; }
     public void setHealth(int health) { currentHealth = health; }
     public void changeHealth(int health, string change)
