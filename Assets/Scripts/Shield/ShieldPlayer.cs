@@ -24,7 +24,7 @@ public class ShieldPlayer : MonoBehaviour
         }
         else if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
-            other.gameObject.GetComponent<Enemy>().changeHealth(HitsLeft, "remove");
+            other.gameObject.GetComponent<Enemy>().ReceiveShot(HitsLeft);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Shield")

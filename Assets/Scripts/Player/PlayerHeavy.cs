@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerHeavy : Player
 {
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 10;
+        health = 12;
         speed = 7;
         RoF = 6;
         dmg = 3;
+        base.Start();
     }
 
     // Update is called once per frame

@@ -17,9 +17,9 @@ public class EnemyMedic : Enemy
     private bool isSpecialShooting = false;
 
 
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 10;
+        health = 10;
         speed = 5;
         RoF = 5;
         shootChance = 0;
@@ -28,8 +28,7 @@ public class EnemyMedic : Enemy
         healRadius = 5f;
         healAmmount = 2;
         healDuration = 5f;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 
     void FixedUpdate()
@@ -74,7 +73,7 @@ public class EnemyMedic : Enemy
         int rng = Random.Range(0, 100);
         if (rng > (100 - specialShootChance))
         {
-            if (Tanker != null && Tanker.getHealth() != Tanker.getMaxHealth())
+            if (Tanker != null && !Tanker.GetComponent<EntityHealth>().IsFullHealth())
             {
                 StartCoroutine(HealTanker());
             }
@@ -86,7 +85,7 @@ public class EnemyMedic : Enemy
                     if (hit.gameObject != this.gameObject && hit.gameObject != Tanker.gameObject && hit.CompareTag("Enemy") || hit.CompareTag("Boss"))
                     {
                         Enemy ally = hit.GetComponent<Enemy>();
-                        if (ally != null && ally.getHealth() < ally.getMaxHealth())
+                        if (ally != null && !ally.GetComponent<EntityHealth>().IsFullHealth())
                         {
                             StartCoroutine(HealTarget(ally));
                             break; // soigne un seul à la fois
@@ -100,7 +99,7 @@ public class EnemyMedic : Enemy
     }
     IEnumerator HealTanker()
     {
-        Tanker.changeHealth(healAmmount, "add");
+        Tanker.ReceiveHeal(healAmmount);
         yield return new WaitForSeconds(healDuration);
     }
 
@@ -110,7 +109,7 @@ public class EnemyMedic : Enemy
         rb.velocity = Vector2.zero;
         isMoving = true;
 
-        target.changeHealth(healAmmount, "add");
+        target.ReceiveHeal(healAmmount);
 
         yield return new WaitForSeconds(healDuration);
 

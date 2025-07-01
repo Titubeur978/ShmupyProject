@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected int maxHealth, shootChance;
-    [SerializeField] protected float speed, RoF;
+    protected int health,shootChance;
+    protected float speed, RoF;
+    private EntityHealth healthComponent;
     protected Vector2 mov;
 
     public int currentHealth;
@@ -17,12 +18,20 @@ public class Enemy : MonoBehaviour
 
     protected Rigidbody2D rb;
 
+    protected virtual void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        healthComponent = GetComponent<EntityHealth>();
+        if (healthComponent != null)
+        {
+            healthComponent.maxHealth = health;
+            healthComponent.SetHealth(health);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currentHealth <= 0)
-            Destroy(gameObject);
-
         if (!isShooting)
             Shoot();
 
@@ -30,9 +39,32 @@ public class Enemy : MonoBehaviour
             Move();
     }
 
+    public void ReceiveShot(int damage)
+    {
+        healthComponent.ModifyHealth(damage, HealthChangeType.Remove);
+    }
+
+    public void ReceiveHeal(int heal)
+    {
+        healthComponent.ModifyHealth(heal, HealthChangeType.Add);
+    }
+
     public virtual void Move()
     {
         StartCoroutine(Moving());
+    }
+
+    public void DistanceToWall() //pas sur du retour, mais ca restera pas un void
+    {
+        //verifier quel mur est le plus proche et s'il est trop proche, empecher le deplacement dans cette direction
+        //vitesse * temps entre déplacement = distance du prochain déplacement
+    }
+
+
+
+    public virtual void Shoot()
+    {
+        StartCoroutine(Shooting(RoF));
     }
 
     public virtual IEnumerator Moving()
@@ -58,13 +90,8 @@ public class Enemy : MonoBehaviour
                 break;
         }
         rb.velocity = mov * speed;
-        yield return new WaitForSeconds(2/speed);
+        yield return new WaitForSeconds(2 / speed);
         isMoving = false;
-    }
-
-    public virtual void Shoot()
-    {
-        StartCoroutine(Shooting(RoF));
     }
 
     IEnumerator Shooting(float RoF)
@@ -76,27 +103,4 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1 / RoF);
         isShooting = false;
     }
-
-    public void DistanceToWall() //pas sur du retour, mais ca restera pas un void
-    {
-        //verifier quel mur est le plus proche et s'il est trop proche, empecher le deplacement dans cette direction
-    }
-
-    public int getMaxHealth() { return maxHealth; }
-    public int getHealth() { return currentHealth; }
-    public void setHealth(int health) { currentHealth = health; }
-    public void changeHealth(int health, string change)
-    {
-        if (change == "add")
-        {
-            if (currentHealth + health <= maxHealth)
-                currentHealth += health;
-            else
-                currentHealth = maxHealth;
-        }
-        else if( change == "remove")
-            setHealth(currentHealth - health);
-    }
-
-
 }

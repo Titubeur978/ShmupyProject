@@ -25,7 +25,7 @@ public class HealingPulse : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
-            other.gameObject.GetComponent<Enemy>().changeHealth(heal, "add");
+            other.gameObject.GetComponent<Enemy>().ReceiveHeal(heal);
             Destroy(gameObject);
         }
 

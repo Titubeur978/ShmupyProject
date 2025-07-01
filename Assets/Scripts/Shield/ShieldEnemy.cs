@@ -24,7 +24,7 @@ public class ShieldEnemy : MonoBehaviour
         else if(other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            other.gameObject.GetComponent<Player>().changeHealth(2, "remove");
+            other.gameObject.GetComponent<Player>().ReceiveShot(2);
         }
     }
 }

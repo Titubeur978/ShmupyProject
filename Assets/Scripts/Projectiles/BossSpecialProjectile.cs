@@ -28,7 +28,7 @@ public class BossSpecialProjectile : MonoBehaviour
 
         if(distance <= explosionRadius/2)
         {
-            player.GetComponent<Player>().changeHealth(2, "remove");
+            player.GetComponent<Player>().ReceiveShot(2);
             //jouer l'explosion en plus petite
             Destroy(gameObject);
         }
@@ -41,7 +41,7 @@ public class BossSpecialProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().changeHealth(4, "remove");
+            other.gameObject.GetComponent<Player>().ReceiveShot(4);
             Destroy(gameObject);
         }
 
@@ -61,7 +61,7 @@ public class BossSpecialProjectile : MonoBehaviour
         explosion = true;
         yield return new WaitForSeconds(0.5f*duree);
         if (distance <= explosionRadius)
-            player.GetComponent<Player>().changeHealth(3, "remove");
+            player.GetComponent<Player>().ReceiveShot(3);
         //jouer l'explosion
         Destroy(gameObject);
 

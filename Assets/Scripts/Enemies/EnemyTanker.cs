@@ -7,14 +7,13 @@ public class EnemyTanker : Enemy
     public Transform ShieldPoint;
     public EnemyMedic Medic;
 
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 15;
+        health = 15;
         speed = 5;
         RoF = 3;
         shootChance = 20;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 
     public override void Move()

@@ -378,6 +378,8 @@
 "Assets/Scripts/Enemies/EnemyMedic.cs"
 "Assets/Scripts/Enemies/EnemyMugger.cs"
 "Assets/Scripts/Enemies/EnemyTanker.cs"
+"Assets/Scripts/EntityHealth.cs"
+"Assets/Scripts/EntityStats.cs"
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Player/PlayerBasic.cs"
 "Assets/Scripts/Player/PlayerHeavy.cs"

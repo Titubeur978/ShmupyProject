@@ -5,12 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] protected int maxHealth, dmg;
-    [SerializeField] private int currentHealth;
-    [SerializeField] protected float speed, RoF; //RoF=shots per seconds
+    protected int health, dmg;
+    protected float speed, RoF; 
+    public EntityHealth healthComponent;
 
     protected bool isShooting = false;
-    private bool first = true;
 
     public GameObject projectile;
     public Transform shootPoint;
@@ -18,44 +17,51 @@ public class Player : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     private Vector2 move = Vector2.zero;
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        healthComponent = GetComponent<EntityHealth>();
+        if (healthComponent != null)
+        {
+            healthComponent.maxHealth = health;
+            healthComponent.SetHealth(health);
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (first)
-        {
-            currentHealth = maxHealth;
-            first = false;
-        }
-        Move();
-        if(getHealth() <= 0)
-        {
-            Destroy(gameObject);
-            Debug.Log("You Dead !");
-        }
+        Move(); //Puis écoute les instructions pour se déplacer
     }
 
 
+    public void ReceiveShot(int damage)
+    {
+        healthComponent.ModifyHealth(damage, HealthChangeType.Remove);
+    }
+
+    public void ReceiveHeal(int heal)
+    {
+        healthComponent.ModifyHealth(heal, HealthChangeType.Add);
+    }
 
     private void OnMove(InputValue val) //Listening player movement inputs (zqsd/wasd)
     {
         move = val.Get<Vector2>();
     }
 
-    private void OnShoot()
+    private void OnShoot() //Listening player shoot input (space)
     {
         if(!isShooting)
             Shoot();
     }
 
-    private void OnBoost()
+    private void OnBoost() //Listening player boost input (left shift)
     {
-
+        //pas encore implémenté
     }
+
+
 
     private void Move()
     {
@@ -69,20 +75,6 @@ public class Player : MonoBehaviour
 
 
 
-    public int getHealth() { return currentHealth; }
-    public void setHealth(int health) { currentHealth = health; }
-    public void changeHealth(int health, string change)
-    {
-        if (change == "add")
-        {
-            if (currentHealth + health <= maxHealth)
-                currentHealth += health;
-            else
-                currentHealth = maxHealth;
-        }
-        else if (change == "remove")
-            setHealth(currentHealth - health);
-    }
 
     IEnumerator Shooting(float RoF)
     {
@@ -91,6 +83,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1/RoF);
         isShooting = false;
     }
+
+
 
     public int getDMG() { return dmg; }
 

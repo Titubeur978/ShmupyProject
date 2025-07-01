@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class EnemyBandit : Enemy
 {
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 2;
+        health = 2;
         speed = 10;
         RoF = 5;
         shootChance = 15;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 }

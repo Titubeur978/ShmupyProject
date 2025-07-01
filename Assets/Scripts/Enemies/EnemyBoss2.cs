@@ -12,17 +12,16 @@ public class EnemyBoss2 : Enemy
     private bool isSpecialShooting = false;
     private float specialRoF;
     private int specialShootChance;
-    
-    void Start()
+
+    protected override void Start()
     {
-        maxHealth = 35;
+        health = 35;
         speed = 4;
         RoF = 3;
         shootChance = 40;
         specialRoF = 1;
         specialShootChance = 10;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 
     void FixedUpdate()

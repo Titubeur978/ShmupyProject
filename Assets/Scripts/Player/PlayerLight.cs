@@ -7,12 +7,13 @@ public class PlayerLight : Player
     public Transform shootPoint2;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 4;
+        health = 3;
         speed = 10;
         RoF = 4;
         dmg = 1;
+        base.Start();
     }
 
     // Update is called once per frame

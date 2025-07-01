@@ -6,14 +6,13 @@ public class EnemyBoss1 : Enemy
 {
     public Transform shootPoint2;
 
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 30;
+        health = 30;
         speed = 4;
         RoF = 3;
         shootChance = 40;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 
     public override void Shoot()

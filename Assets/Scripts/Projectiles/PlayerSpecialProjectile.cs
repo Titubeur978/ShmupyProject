@@ -31,7 +31,7 @@ public class PlayerSpecialProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
-            other.gameObject.GetComponent<Enemy>().changeHealth(dmg, "remove");
+            other.gameObject.GetComponent<Enemy>().ReceiveShot(dmg);
             Destroy(gameObject);
         }
 

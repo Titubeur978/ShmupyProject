@@ -13,16 +13,15 @@ public class EnemyBossFinal : Enemy
     private float specialRoF;
     private int specialShootChance;
 
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 50;
+        health = 50;
         speed = 4;
         RoF = 1;
         shootChance = 65;
         specialRoF = 2;
         specialShootChance = 15;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 
     void FixedUpdate()

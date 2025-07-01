@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class EnemyMugger : Enemy
 {
-    void Start()
+    protected override void Start()
     {
-        maxHealth = 1;
+        health = 1;
         speed = 12;
         RoF = 5;
         shootChance = 15;
-        rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
+        base.Start();
     }
 }
